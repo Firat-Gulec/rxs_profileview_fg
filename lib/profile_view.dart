@@ -1,29 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rxs_profileview_fg/change_theme_button_widget.dart';
+import 'package:rxs_profileview_fg/profile_list_item.dart';
+
+import 'package:rxs_profileview_fg/theme_provider.dart';
 
 class ProfileView extends StatefulWidget {
-  
-
   const ProfileView({super.key});
 
   @override
   State<ProfileView> createState() => _ProfileViewState();
 }
 
+class _ProfileViewState extends State<ProfileView> {
+  Future<void> _changeTheme() async {
+    setState(() {
+      ChangeThemeButtonWidget();
+    });
+  }
 
-class _ProfileViewState extends 
-State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-         
-        },
+        onPressed: () {},
       ),
-        body: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Stack(
           children: [
-           /* const SizedBox(
+            /* const SizedBox(
               height: 100,
               child: HeaderWidget(100, false, Icons.house_rounded),
             ), */
@@ -38,7 +43,7 @@ State<ProfileView> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
                       border: Border.all(width: 5, color: Colors.white),
-                      color: Colors.white,
+                      color: Theme.of(context).primaryColor,
                     ),
                     child: Icon(
                       Icons.person,
@@ -58,120 +63,41 @@ State<ProfileView> {
                     height: 20,
                   ),
                   const Text(
-                    'Actor',
+                    'veli.duman@rixos.com',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          padding:
-                              const EdgeInsets.only(left: 8.0, bottom: 4.0),
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                            'LocaleKeys.profile_information.tr()',
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16,
-                            ),
-                            textAlign: TextAlign.left,
-                          ),
-                        ),
-                        Card(
-                          child: Container(
-                            alignment: Alignment.topLeft,
-                            padding: const EdgeInsets.all(15),
-                            child: Column(
-                              children: <Widget>[
-                                Column(
-                                  children: <Widget>[
-                                    ...ListTile.divideTiles(
-                                      color: Colors.grey,
-                                      tiles: [
-                                        ListTile(
-                                          contentPadding:
-                                              const EdgeInsets.symmetric(
-                                                  horizontal: 12, vertical: 4),
-                                          leading:
-                                              const Icon(Icons.my_location),
-                                          title: Text(
-                                              'LocaleKeys.profile_location.tr()'),
-                                          subtitle: const Text("USA"),
-                                        ),
-                                        ListTile(
-                                          leading: const Icon(Icons.email),
-                                          title: Text(
-                                              'LocaleKeys.profile_email.tr()'),
-                                          subtitle: const Text(
-                                              "john.travolta@gmail.com"),
-                                        ),
-                                        ListTile(
-                                          leading: const Icon(Icons.phone),
-                                          title: Text(
-                                              'LocaleKeys.profile_phone.tr()'),
-                                          subtitle: const Text("99--99876-56"),
-                                        ),
-                                     /*   enforcer.enforce([
-                                          userModel?.name,
-                                          'data1',
-                                          'read'
-                                        ])
-                                            ? ListTile(
-                                                leading:
-                                                    const Icon(Icons.person),
-                                                title: Text(LocaleKeys
-                                                    .profile_about
-                                                    .tr()),
-                                                subtitle: const Text(
-                                                    "This is Alice's data"),
-                                              )
-                                            : ListTile(
-                                                leading:
-                                                    const Icon(Icons.person),
-                                                title: Text(LocaleKeys
-                                                    .profile_about
-                                                    .tr()),
-                                                subtitle: const Text(
-                                                    "You're not authorized to view this page"),
-                                              ),
-                                        enforcer.enforce([
-                                          userModel?.name,
-                                          'data2',
-                                          'read'
-                                        ])
-                                            ? ListTile(
-                                                leading:
-                                                    const Icon(Icons.person),
-                                                title: Text(LocaleKeys
-                                                    .profile_about
-                                                    .tr()),
-                                                subtitle: const Text(
-                                                    "This is Bob's data"),
-                                              )
-                                            : ListTile(
-                                                leading:
-                                                    const Icon(Icons.person),
-                                                title: Text(LocaleKeys
-                                                    .profile_about
-                                                    .tr()),
-                                                subtitle: const Text(
-                                                    "You're not authorized to view this page"),
-                                              ),*/
-                                      ],
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  )
+                  ...ListTile.divideTiles(
+                    color: Colors.white,
+                                      tiles: 
+
+                     [
+                      ProfileListItem(
+                        icon: Icons.ac_unit,
+                        text: 'Purchase History',
+                      ),
+                      ProfileListItem(
+                        icon: Icons.ac_unit,
+                        text: 'Help & Support',
+                      ),
+                      ProfileListItem(
+                        icon: Icons.ac_unit,
+                        text: 'Settings',
+                      ),
+                      ProfileListItem(
+                        icon: Icons.ac_unit,
+                        text: 'Invite a Friend',
+                      ),
+                      ProfileListItem(
+                        icon: Icons.ac_unit,
+                        text: 'Logout',
+                      ),
+                    ],
+                  ),
+                  ElevatedButton(onPressed: () {}, child: Text('data')),
+                  ChangeThemeButtonWidget()
                 ],
               ),
             )
