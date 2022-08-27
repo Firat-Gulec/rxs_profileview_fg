@@ -18,6 +18,13 @@ class _ProfileViewState extends State<ProfileView> {
       ChangeThemeButtonWidget();
     });
   }
+int value = 0;
+  final paymentLabels = [
+  'Credit card / Debit card',
+  'Cash on delivery',
+  'Paypal',
+  'Google wallet',
+];
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +103,26 @@ class _ProfileViewState extends State<ProfileView> {
                       ),
                     ],
                   ),
+ExpansionTile(
+                title: const Text('Transaction Details'),
+                textColor: Colors.white,
+                iconColor: Colors.white,
+                initiallyExpanded: true,
+                maintainState: true,
+                children: List.generate(paymentLabels.length, (index) {
+                  return ListTile(
+                      leading: Radio(
+                        //activeColor: kPrimaryColor,
+                        value: index,
+                        groupValue: 5,
+                        onChanged: (i) => setState(() => value = index),
+                      ),
+                      title: Text(
+                        paymentLabels[index],
+                      ));
+                }),
+              ),
+
                   ElevatedButton(onPressed: () {}, child: Text('data')),
                   ChangeThemeButtonWidget()
                 ],
