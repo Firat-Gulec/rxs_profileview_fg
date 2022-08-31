@@ -163,7 +163,7 @@ int value = 0;
   }
 
 
-
+//build
 Row buildNotificationOptionRow(String title, bool isActive) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
