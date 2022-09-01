@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rxs_profileview_fg/change_theme_button_widget.dart';
 import 'package:rxs_profileview_fg/profile_list_item.dart';
+import 'package:rxs_profileview_fg/profile_widget.dart';
 
 import 'package:rxs_profileview_fg/theme_provider.dart';
 
@@ -29,6 +30,7 @@ int value = 0;
 
   @override
   Widget build(BuildContext context) {
+     Size size = MediaQuery.of(context).size;
       return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
@@ -78,7 +80,39 @@ int value = 0;
                     height: 10,
                   ),
                  
-                 
+                 SizedBox(
+              height: size.height * .7,
+              width: size.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  ProfileWidget(
+                    icon: Icons.person,
+                    title: 'My Profile',
+                  ),
+                  ProfileWidget(
+                    icon: Icons.settings,
+                    title: 'Settings',
+                  ),
+                  ProfileWidget(
+                    icon: Icons.notifications,
+                    title: 'Notifications',
+                  ),
+                  ProfileWidget(
+                    icon: Icons.chat,
+                    title: 'FAQs',
+                  ),
+                  ProfileWidget(
+                    icon: Icons.share,
+                    title: 'Share',
+                  ),
+                  ProfileWidget(
+                    icon: Icons.logout,
+                    title: 'Log Out',
+                  ),
+                ],
+              ),
+            ),
 
    Row(
               children: [
