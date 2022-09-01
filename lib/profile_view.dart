@@ -20,18 +20,19 @@ class _ProfileViewState extends State<ProfileView> {
       ChangeThemeButtonWidget();
     });
   }
-int value = 0;
+
+  int value = 0;
   final paymentLabels = [
-  'Credit card / Debit card',
-  'Cash on delivery',
-  'Paypal',
-  'Google wallet',
-];
+    'Credit card / Debit card',
+    'Cash on delivery',
+    'Paypal',
+    'Google wallet',
+  ];
 
   @override
   Widget build(BuildContext context) {
-     Size size = MediaQuery.of(context).size;
-      return Scaffold(
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
       ),
@@ -79,99 +80,47 @@ int value = 0;
                   const SizedBox(
                     height: 10,
                   ),
-                 
-                 SizedBox(
-              height: size.height * .7,
-              width: size.width,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  ProfileWidget(
-                    icon: Icons.person,
-                    title: 'My Profile', 
+                  SizedBox(
+                    height: size.height * .5,
+                    width: size.width,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ProfileWidget(
+                          icon: Icons.person,
+                          title: 'My Profile',
+                          press: () {},
+                        ),
+                        ProfileWidget(
+                          icon: Icons.settings,
+                          title: 'Settings',
+                          press: () {},
+                        ),
+                        ProfileWidget(
+                          icon: Icons.notifications,
+                          title: 'Notifications',
+                          press: () {},
+                        ),
+                        ProfileWidget(
+                          icon: Icons.chat,
+                          title: 'FAQs',
+                          press: () {},
+                        ),
+                        ProfileWidget(
+                          icon: Icons.share,
+                          title: 'Share',
+                          press: () {},
+                        ),
+                        ProfileWidget(
+                          icon: Icons.logout,
+                          title: 'Log Out',
+                          press: () {},
+                        ),
+                      ],
+                    ),
                   ),
-                  ProfileWidget(
-                    icon: Icons.settings,
-                    title: 'Settings', 
-                  ),
-                  ProfileWidget(
-                    icon: Icons.notifications,
-                    title: 'Notifications', 
-                  ),
-                  ProfileWidget(
-                    icon: Icons.chat,
-                    title: 'FAQs', 
-                  ),
-                  ProfileWidget(
-                    icon: Icons.share,
-                    title: 'Share', 
-                  ),
-                  ProfileWidget(
-                    icon: Icons.logout,
-                    title: 'Log Out', 
-                  ),
-                ],
-              ),
-            ),
-
-   Row(
-              children: [
-                Icon(
-                  Icons.person,
-                  color: Colors.green,
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  "Account",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            Divider(
-              height: 15,
-              thickness: 2,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            buildAccountOptionRow(context, "Change password"),
-            buildAccountOptionRow(context, "Content settings"),
-            buildAccountOptionRow(context, "Social"),
-            buildAccountOptionRow(context, "Language"),
-            buildAccountOptionRow(context, "Privacy and security"),
-            SizedBox(
-              height: 40,
-            ),
-            Row(
-              children: [
-                Icon(
-                  Icons.volume_up_outlined,
-                  color: Colors.green,
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  "Notifications",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            Divider(
-              height: 15,
-              thickness: 2,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            buildNotificationOptionRow("New for you", true),
-            buildNotificationOptionRow("Account activity", true),
-            buildNotificationOptionRow("Opportunity", false),
-            SizedBox(
-              height: 50,
-            ),/*
+                
+                  /*
             Center(
               child: OutlineButton(
                 padding: EdgeInsets.symmetric(horizontal: 40),
@@ -183,7 +132,6 @@ int value = 0;
                         fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
               ),
 */
-                 
 
                   ElevatedButton(onPressed: () {}, child: Text('data')),
                   ChangeThemeButtonWidget()
@@ -196,9 +144,8 @@ int value = 0;
     );
   }
 
-
 //build
-Row buildNotificationOptionRow(String title, bool isActive) {
+  Row buildNotificationOptionRow(String title, bool isActive) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

@@ -5,9 +5,9 @@ class ProfileWidget extends StatelessWidget {
     Key? key,
     required this.icon,
     required this.title,
-  //  required this.press,
+  required this.press,
   }) : super(key: key);
- // final GestureTapCallback press;
+final GestureTapCallback press;
   final IconData icon;
   final String title;
 
@@ -15,6 +15,7 @@ class ProfileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       //onTap: press,
+       onTap: press,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 18),
         child: Row(
