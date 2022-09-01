@@ -88,27 +88,27 @@ int value = 0;
                 children: const [
                   ProfileWidget(
                     icon: Icons.person,
-                    title: 'My Profile',
+                    title: 'My Profile', 
                   ),
                   ProfileWidget(
                     icon: Icons.settings,
-                    title: 'Settings',
+                    title: 'Settings', 
                   ),
                   ProfileWidget(
                     icon: Icons.notifications,
-                    title: 'Notifications',
+                    title: 'Notifications', 
                   ),
                   ProfileWidget(
                     icon: Icons.chat,
-                    title: 'FAQs',
+                    title: 'FAQs', 
                   ),
                   ProfileWidget(
                     icon: Icons.share,
-                    title: 'Share',
+                    title: 'Share', 
                   ),
                   ProfileWidget(
                     icon: Icons.logout,
-                    title: 'Log Out',
+                    title: 'Log Out', 
                   ),
                 ],
               ),
