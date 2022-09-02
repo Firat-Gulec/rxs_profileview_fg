@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rxs_profileview_fg/change_theme_button_widget.dart';
+import 'package:rxs_profileview_fg/widget/change_theme_button_widget.dart';
 import 'package:rxs_profileview_fg/profile_list_item.dart';
-import 'package:rxs_profileview_fg/profile_widget.dart';
+import 'package:rxs_profileview_fg/widget/profile_widget.dart';
 
 import 'package:rxs_profileview_fg/theme_provider.dart';
 

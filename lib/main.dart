@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rxs_profileview_fg/profile_view.dart';
+import 'package:rxs_profileview_fg/profile/view/profile_view.dart';
 import 'package:rxs_profileview_fg/theme_provider.dart';
 
 void main() async {
