@@ -39,7 +39,7 @@ class ProfileWidget extends StatelessWidget {
 
     return ClipOval(
       child: Material(
-        color: Colors.transparent,
+        color: Colors.amber,
         child: Ink.image(
           image: image as ImageProvider,
           fit: BoxFit.cover,
@@ -52,7 +52,7 @@ class ProfileWidget extends StatelessWidget {
   }
 
   Widget buildEditIcon(Color color) => buildCircle(
-        color: Colors.white,
+        color: Colors.greenAccent,
         all: 3,
         child: buildCircle(
           color: color,
