@@ -1,51 +1,80 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 class ProfileWidget extends StatelessWidget {
+  final String imagePath;
+  final bool isEdit;
+  final VoidCallback onClicked;
+
   const ProfileWidget({
     Key? key,
-    required this.icon,
-    required this.title,
-  required this.press,
+    required this.imagePath,
+    this.isEdit = false,
+    required this.onClicked,
   }) : super(key: key);
-final GestureTapCallback press;
-  final IconData icon;
-  final String title;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      //onTap: press,
-       onTap: press,
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 18),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Icon(
-                  icon,
-                  color: Colors.green, //.withOpacity(.2),
-                  size: 24,
-                ),
-                const SizedBox(
-                  width: 16,
-                ),
-                Text(title,
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey[600])),
-              ],
-            ),
-            Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.grey[600],
-              size: 16,
-            )
-          ],
+    final color = Theme.of(context).colorScheme.primary;
+
+    return Center(
+      child: Stack(
+        children: [
+          buildImage(),
+          Positioned(
+            bottom: 0,
+            right: 4,
+            child: buildEditIcon(color),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildImage() {
+    final image = imagePath.contains('https://')
+        ? NetworkImage(imagePath)
+        : FileImage(File(imagePath));
+
+    return ClipOval(
+      child: Material(
+        color: Colors.transparent,
+        child: Ink.image(
+          image: image as ImageProvider,
+          fit: BoxFit.cover,
+          width: 128,
+          height: 128,
+          child: InkWell(onTap: onClicked),
         ),
       ),
     );
   }
+
+  Widget buildEditIcon(Color color) => buildCircle(
+        color: Colors.white,
+        all: 3,
+        child: buildCircle(
+          color: color,
+          all: 8,
+          child: Icon(
+            isEdit ? Icons.add_a_photo : Icons.edit,
+            color: Colors.white,
+            size: 20,
+          ),
+        ),
+      );
+
+  Widget buildCircle({
+    required Widget child,
+    required double all,
+    required Color color,
+  }) =>
+      ClipOval(
+        child: Container(
+          padding: EdgeInsets.all(all),
+          color: color,
+          child: child,
+        ),
+      );
 }

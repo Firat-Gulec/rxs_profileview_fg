@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rxs_profileview_fg/widget/appbar_widget.dart';
+
 import 'package:rxs_profileview_fg/widget/change_theme_button_widget.dart';
-import 'package:rxs_profileview_fg/widget/profile_widget.dart';
+import 'package:rxs_profileview_fg/widget/profilewidget.dart';
 
 import 'package:rxs_profileview_fg/theme_provider.dart';
 
@@ -20,18 +22,17 @@ class _ProfileViewState extends State<ProfileView> {
     });
   }
 
-  int value = 0;
-  final paymentLabels = [
-    'Credit card / Debit card',
-    'Cash on delivery',
-    'Paypal',
-    'Google wallet',
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+    final ValueNotifier<bool> _counter = ValueNotifier<bool>(true);
+    final isDarkMode = themeProvider.isDarkMode;
+    final icon =
+        isDarkMode ? CupertinoIcons.sun_max : CupertinoIcons.moon_stars;
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: buildAppBar(context),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
       ),
@@ -85,32 +86,32 @@ class _ProfileViewState extends State<ProfileView> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        ProfileWidget(
+                        Profile_Widget(
                           icon: Icons.person,
                           title: 'My Profile',
                           press: () {},
                         ),
-                        ProfileWidget(
+                        Profile_Widget(
                           icon: Icons.settings,
                           title: 'Settings',
                           press: () {},
                         ),
-                        ProfileWidget(
+                        Profile_Widget(
                           icon: Icons.notifications,
                           title: 'Notifications',
                           press: () {},
                         ),
-                        ProfileWidget(
+                        Profile_Widget(
                           icon: Icons.chat,
                           title: 'FAQs',
                           press: () {},
                         ),
-                        ProfileWidget(
+                        Profile_Widget(
                           icon: Icons.share,
                           title: 'Share',
                           press: () {},
                         ),
-                        ProfileWidget(
+                        Profile_Widget(
                           icon: Icons.logout,
                           title: 'Log Out',
                           press: () {},
@@ -118,7 +119,7 @@ class _ProfileViewState extends State<ProfileView> {
                       ],
                     ),
                   ),
-                
+
                   /*
             Center(
               child: OutlineButton(
