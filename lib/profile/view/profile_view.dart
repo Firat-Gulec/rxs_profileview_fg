@@ -53,14 +53,7 @@ class _ProfileViewState extends State<ProfileView> {
                       final image = await ImagePicker()
                           .pickImage(source: ImageSource.gallery);
                       if (image == null) return;
-/* 
-                    final directory = await getApplicationDocumentsDirectory();
-                    final name = basename(image.path);
-                    final imageFile = File('${directory.path}/$name');
-                    final newImage =
-                        await File(image.path).copy(imageFile.path);
-
-                    setState(() => user = user.copy(imagePath: newImage.path));*/
+//
                     },
                   ),
                   const SizedBox(

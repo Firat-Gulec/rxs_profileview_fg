@@ -40,7 +40,7 @@ class MyThemes {
     colorScheme: ColorScheme.light(primary: primary),
     dividerColor: Colors.black,
     appBarTheme: AppBarTheme(
-        foregroundColor: Colors.black //here you can give the text color
+        foregroundColor: Colors.black 
         ),
   );
 }
